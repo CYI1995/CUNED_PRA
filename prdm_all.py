@@ -391,12 +391,12 @@ def draw_plot(rotated_path, unrotated_path, chi, output, first_half=False,
           r'$\boldsymbol{\rho_{U,S},\ \mathrm{exact}}$')
     curve(Sr,rotated['mub_count'],std(rotated,'mub_count'),'red','-','^',
           r'$\boldsymbol{\widehat{\rho}_{U,S},\ \mathrm{MUB}}$')
-    curve(Sr,rotated['noisy_count'],std(rotated,'noisy_count'),'goldenrod','-','d',
-          r'$\boldsymbol{\widehat{\rho}^{\mathcal E}_{U,S},\ \mathrm{MUB}}$')
+    # curve(Sr,rotated['noisy_count'],std(rotated,'noisy_count'),'goldenrod','-','d',
+    #       r'$\boldsymbol{\widehat{\rho}^{\mathcal E}_{U,S},\ \mathrm{MUB}}$')
     curve(Su,unrotated['exact_stable_rank'],np.zeros(len(Su)),'seagreen','--','s',
           r'$\boldsymbol{\rho_S,\ \mathrm{exact}}$')
-    ax2.axhline(chi,color='black',linestyle='--',linewidth=1.8,
-                label=rf'$\boldsymbol{{\chi={chi}}}$')
+    ax2.axhline(chi-1,color='black',linestyle='--',linewidth=1.8,
+                label=rf'$\boldsymbol{{\chi={chi-1}}}$')
     xt=np.unique(np.r_[Sr,Su])
     ax2.set_xticks(xt)
     ax2.set_xticklabels(bold_int_labels(xt))
